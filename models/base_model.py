@@ -38,8 +38,14 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """changes the pbject format to dictionary format"""
-        self.__dict__["__class__"] = self.__class__.__name__
-        self.__dict__["created_at"] = self.created_at.isoformat()
-        self.__dict__["updated_at"] = self.updated_at.isoformat()
-        return self.__dict__
+        """ to_dict definition """
+        
+        dic = {}
+        for key, item in self.__dict__.items():
+            if key not in ['created_at', 'updated_at']:
+                dic[key] = item
+
+        dic['__class__'] = self.__class__.__name__
+        dic['created_at'] = self.created_at.isoformat()
+        dic['updated_at'] = self.updated_at.isoformat()
+        return dic

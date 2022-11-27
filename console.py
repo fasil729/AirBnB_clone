@@ -8,11 +8,11 @@ class_names = ["BaseModel"]
 
 class HBNBCommand(cmd.Cmd):
     """a class use for console """
-    prompt = " (hbnb) "
+    prompt = "(hbnb) "
 
     def emptyline(self):
-        """empty line command"""
-        print(end="")
+        """empty line """
+        pass
 
     def do_quit(self, line):
         """Quit command to exit the program"""
@@ -20,7 +20,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """Quit command to exit the program"""
-        print()
         return True
 
     def do_create(self, obj=None):

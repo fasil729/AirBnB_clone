@@ -78,6 +78,7 @@ class HBNBCommand(cmd.Cmd):
                         del storage.all()[key]
                         storage.save()
                         is_ins = True
+                        break
                     else:
                         continue
                 if not is_ins:

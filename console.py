@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """the console to test my works"""
 import cmd
-from models import BaseModel, storage
+from models import BaseModel, storage, City, State, Place, Amenity, Review, User
 import json
 
 
-class_names = ["BaseModel"]
+class_names = ["BaseModel", "City", "State",
+              "Place", "Amenity", "Review", "User"]
 
 
 class HBNBCommand(cmd.Cmd):
@@ -68,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) < 2:
             print("** instance id missing **")
             return
-        if args[0] not in classes:
+        if args[0] not in class_names:
             print("** class doesn't exist **")
             return
         for k, v in storage.all().items():
@@ -105,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return False
-        if args[0] in classes:
+        if args[0] in class_names:
             if len(args) > 1:
                 key = args[0] + '.' + args[1]
                 if key in storage.all():

@@ -151,7 +151,16 @@ class HBNBCommand(cmd.Cmd):
             self.do_destroy(f"{arg[0]} {lin[1]}")
         elif arg[1].startswith("update"):
             lin = arg[1].split('"')
-            self.do_update(f"{arg[0]} {lin[1]} {lin[3]} {lin[5]}")
+            if "{" not in arg[1]:
+                self.do_update(f"{arg[0]} {lin[1]} {lin[3]} {lin[5]}")
+            else:
+                lined = arg[1].split("{")
+                dic = lined[1][:-1]
+                dic_list = dic.split(",")
+                for val in dic_lis:
+                    keys = val.split(":")
+                    self.do_update(f"{arg[0]} {lin[1]} {keys[0].strip()} {keys[1].strip()}")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

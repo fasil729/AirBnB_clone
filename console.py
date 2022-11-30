@@ -149,6 +149,9 @@ class HBNBCommand(cmd.Cmd):
         elif arg[1].startswith("destroy"):
             lin = arg[1].split('"')
             self.do_destroy(f"{arg[0]} {lin[1]}")
+        elif arg[1].startswith("update"):
+            lin = arg[1].split('"')
+            self.do_update(f"{arg[0]} {lin[1]} {lin[3]} {lin[5]}")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

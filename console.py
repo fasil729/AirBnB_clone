@@ -157,7 +157,7 @@ class HBNBCommand(cmd.Cmd):
                 lined = arg[1].split("{")
                 dic = lined[1][:-1]
                 dic_list = dic.split(",")
-                for val in dic_lis:
+                for val in dic_list:
                     keys = val.split(":")
                     self.do_update(f"{arg[0]} {lin[1]} {keys[0].strip()} {keys[1].strip()}")
 

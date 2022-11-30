@@ -133,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         arg = line.split('.')
-        if arg[1] == "all":
+        if arg[1] == "all()":
             self.do_all(arg[0])
         elif arg[1] == "count":
             all_ob = storage.all()

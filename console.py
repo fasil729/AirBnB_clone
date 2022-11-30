@@ -135,12 +135,12 @@ class HBNBCommand(cmd.Cmd):
         arg = line.split('.')
         if arg[1] == "all()":
             self.do_all(arg[0])
-        elif arg[1] == "count":
+        elif arg[1] == "count()":
             all_ob = storage.all()
             count = 0
             for key in all_ob.keys():
                 keys = key.split('.')
-                if key[0] == arg[0]:
+                if keys[0] == arg[0]:
                     count += 1
             print(count)
         

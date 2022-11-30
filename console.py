@@ -143,7 +143,10 @@ class HBNBCommand(cmd.Cmd):
                 if keys[0] == arg[0]:
                     count += 1
             print(count)
-        
+        elif arg[1].startswith("show"):
+            lin = arg[1].split('"')
+            self.do_show(f"{arg[0]} {lin[1]}")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

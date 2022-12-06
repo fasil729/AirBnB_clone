@@ -1,0 +1,2 @@
+WEB STATIC USING html and CSS
+
